@@ -1,0 +1,144 @@
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background: #0f172a;
+  color: #f8fafc;
+  font-family: "Segoe UI", sans-serif;
+  overflow: hidden;
+}
+
+/* Warning Banner */
+.warning {
+  background: #f87171;
+  color: #fff;
+  padding: 12px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  position: relative;
+  z-index: 2000;
+}
+.warning button {
+  position: absolute;
+  right: 12px;
+  top: 8px;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  height: 100%;
+}
+
+.panel {
+  flex: 0 0 320px;
+  max-width: 100%;
+  padding: 20px;
+  background: rgba(17,24,39,0.95);
+  border-right: 2px solid #1e293b;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+h2 { text-align: center; color: #38bdf8; margin: 0; font-size: 1.4rem; }
+label { font-weight: 600; margin-top: 6px; font-size: 0.95rem; }
+select, button { width: 100%; font-size: 0.95rem; }
+#map { flex: 1; z-index: 1; }
+
+.result-card {
+  background: #1e293b;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.result-card h3 { margin: 0 0 5px; font-size: 1rem; color: #38bdf8; }
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  background: #38bdf8;
+  color: #0f172a;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: background 0.2s, transform 0.1s;
+}
+button:hover { background: #0ea5e9; transform: scale(1.02); }
+
+/* Explosion Fireball */
+.explosion {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,150,0,1), rgba(255,0,0,0.7), transparent);
+  width: 80px;
+  height: 80px;
+  opacity: 0.9;
+  transform: scale(0);
+  pointer-events: none;
+  animation: boom 1.5s ease-out forwards;
+}
+@keyframes boom {
+  0% { transform: scale(0); opacity: 1; filter: blur(2px); }
+  50% { transform: scale(4); opacity: 0.8; filter: blur(8px); }
+  100% { transform: scale(6); opacity: 0; filter: blur(12px); }
+}
+
+/* Falling Fireball */
+.falling {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, #ffae00, #ff3300, #660000);
+  border-radius: 50%;
+  opacity: 0.9;
+  pointer-events: none;
+  animation: fall 1s linear forwards;
+}
+@keyframes fall {
+  from { transform: translateY(-100px) scale(1); opacity: 1; }
+  to { transform: translateY(200px) scale(0.5); opacity: 0.2; }
+}
+
+/* Shake */
+@keyframes shake {
+  0%,100% { transform: translate(0,0); }
+  20% { transform: translate(-6px, 6px); }
+  40% { transform: translate(6px, -6px); }
+  60% { transform: translate(-6px, -3px); }
+  80% { transform: translate(3px, 6px); }
+}
+.shake { animation: shake 0.7s; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main { flex-direction: column; }
+  .panel {
+    width: 100%;
+    flex: 0 0 auto;
+    border-right: none;
+    border-bottom: 2px solid #1e293b;
+  }
+  h2 { font-size: 1.2rem; }
+  .result-card { font-size: 0.85rem; }
+  button { font-size: 0.9rem; padding: 8px; }
+}
+
+@media (max-width: 480px) {
+  h2 { font-size: 1rem; }
+  .panel { padding: 12px; }
+  button { font-size: 0.8rem; padding: 6px; }
+  .result-card { font-size: 0.75rem; }
+}
