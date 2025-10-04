@@ -17,6 +17,10 @@
 <div class="main">
   <div class="panel">
     <h2>☄️ NASA Impact Simulator</h2>
+  
+   <label for="searchAsteroid">Search Asteroid</label>
+  <input type="text" id="searchAsteroid" placeholder="🔍 Type asteroid name...">
+
 
     <label title="Select a Near-Earth Object from NASA's live data">Choose Asteroid</label>
     <select id="asteroidSelect"><option>Loading...</option></select>
@@ -43,6 +47,16 @@
 <div class="top-right-buttons">
   <button id="watchVideo"> video</button>
   <button id="launcher"> launcher</button>
+</div>
+
+<div class="asteroid-visualization">
+  <h2>3D Asteroid Viewer</h2>
+  <iframe 
+    src="https://eyes.nasa.gov/apps/asteroids/#/" 
+    width="100%" 
+    height="600" 
+    style="border: none; border-radius: 10px;">
+  </iframe>
 </div>
 
 </div>

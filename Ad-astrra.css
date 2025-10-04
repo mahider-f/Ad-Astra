@@ -132,6 +132,38 @@ button:hover { background: #0ea5e9; transform: scale(1.02); }
   transform: scale(1.02);
 }
 
+#searchAsteroid {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 2px solid #38bdf8;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  background: #0f172a;
+  color: #f8fafc;
+}
+#searchAsteroid::placeholder {
+  color: #94a3b8;
+}
+
+#panelContent {
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  overflow: hidden;
+  max-height: 2000px; /* big enough to show content */
+  opacity: 1;
+}
+
+#panelContent.collapsed {
+  max-height: 0;
+  opacity: 0;
+  padding: 0;
+}
+#panelHeader {
+  cursor: pointer;
+  user-select: none;
+}
+
+
 @keyframes fall {
   from { transform: translateY(-100px) scale(1); opacity: 1; }
   to { transform: translateY(200px) scale(0.5); opacity: 0.2; }

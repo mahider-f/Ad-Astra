@@ -133,3 +133,42 @@ document.getElementById("randomBtn").onclick = () => {
   document.getElementById("launcher").onclick = function() {
     window.location.href = "./launcher/Ad-Astra.html"; 
   };
+
+  // Search feature
+const searchInput = document.getElementById("searchAsteroid");
+
+searchInput.addEventListener("input", function () {
+  const searchValue = this.value.toLowerCase().trim();
+  let foundAsteroid = asteroidData.find(a =>
+    a.name.toLowerCase().includes(searchValue)
+  );
+
+  if (foundAsteroid) {
+    // Select in dropdown
+    asteroidSelect.value = foundAsteroid.id;
+    asteroidSelect.dispatchEvent(new Event("change")); 
+
+    // Update the result card with the asteroid name
+    astName.textContent = foundAsteroid.name;
+  } else if (searchValue.length > 0) {
+    // Show "Couldn't find asteroid"
+    astName.textContent = "Couldn't find asteroid";
+  } else {
+    // Reset if search box is cleared
+    astName.textContent = "--";
+  }
+});
+
+
+const panelHeader = document.getElementById("panelHeader");
+const panelContent = document.getElementById("panelContent");
+
+panelHeader.addEventListener("click", () => {
+  panelContent.classList.toggle("collapsed");
+  // Optional: change arrow direction
+  if (panelContent.classList.contains("collapsed")) {
+    panelHeader.textContent = "☄️ NASA Impact Simulator ⬆️";
+  } else {
+    panelHeader.textContent = "☄️ NASA Impact Simulator ⬇️";
+  }
+});
