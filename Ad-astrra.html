@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>☄️ Ad-Astra Asteroid Impact Simulator</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="Ad-astrra.css" />
+</head>
+<body>
+
+<div class="warning">
+  ⚠️ This simulator is for <b>educational purposes only</b>.  
+  It does not represent real-time asteroid impact predictions.  
+  <button onclick="this.parentElement.style.display='none'">✖</button>
+</div>
+
+<div class="main">
+  <div class="panel">
+    <h2>☄️ NASA Impact Simulator</h2>
+
+    <label title="Select a Near-Earth Object from NASA's live data">Choose Asteroid</label>
+    <select id="asteroidSelect"><option>Loading...</option></select>
+
+    <div class="result-card" id="resultCard">
+      <h3>🌍 Impact Info</h3>
+      <b>Name:</b> <span id="astName">--</span><br>
+      <b>Impact:</b> <span id="loc">-- , --</span><br>
+      <b>Diameter:</b> <span id="diameter">--</span> m<br>
+      <b>Velocity:</b> <span id="velocity">--</span> km/s<br>
+      <b>Energy:</b> <span id="energy">--</span> Mt<br>
+      <b>Crater:</b> <span id="crater">--</span> m<br>
+      <b>Shockwave:</b> <span id="shock">--</span> m<br>
+      <b>Seismic:</b> <span id="seismic">--</span> m<br>
+      <b>Global:</b> <span id="global">--</span>
+    </div>
+
+    <button id="resetBtn">🔄 Reset</button>
+    <button id="randomBtn">🎲 Random Impact</button>
+  </div>
+
+  <div id="map"></div>
+  <!-- Top Right Buttons -->
+<div class="top-right-buttons">
+  <button id="watchVideo"> video</button>
+  <button id="launcher"> launcher</button>
+</div>
+
+</div>
+
+<!-- Sounds -->
+<audio id="sound-explosion" src="https://www.soundjay.com/explosion/sounds/explosion-01.mp3" preload="auto"></audio>
+<audio id="sound-rumble" src="https://www.soundjay.com/nature/sounds/earthquake-rumble-01.mp3" preload="auto" loop></audio>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="Ad-astrra.js"></script>
+</body>
+</html>
